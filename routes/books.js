@@ -5,7 +5,7 @@ var Book = require("../models").Book;
 /* GET books listing. */
 router.get('/', function(req, res, next) {
   Book.findAll({order: [["createdAt", "DESC"]]}).then(function(books){
-    res.render("books/index", {books: books, title: "My Awesome Blog" });
+    res.render("books/index", {books: books, title: "Books" });
   }).catch(function(err){
     res.send(500);
   });
