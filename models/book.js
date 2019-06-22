@@ -22,9 +22,5 @@ module.exports = (sequelize, DataTypes) => {
     return dateFormat(this.createdAt, "dddd, mmmm dS, yyyy, h:MM TT");
   };
 
-  Book.prototype.shortDescription = function() { 
-    return this.body.length > 30 ? this.body.substr(0, 30) + "..." : this.body;
-  };
-
   return Book;
 };
