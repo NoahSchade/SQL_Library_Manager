@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('sql-library-manager:server');
+var debug = require('debug')('blog:server');
 var http = require('http');
 var sequelize = require("../models").sequelize;
 
@@ -28,7 +28,7 @@ var server = http.createServer(app);
 
 sequelize.sync().then(function(){
   server.listen(port);
-})
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
