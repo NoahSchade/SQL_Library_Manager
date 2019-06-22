@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    author: DataTypes.STRING,
-    body: DataTypes.TEXT
+    author: DataTypes.STRING
   }, {});
   Book.associate = function(models) {
     // associations can be defined here
