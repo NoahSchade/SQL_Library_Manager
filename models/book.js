@@ -1,7 +1,5 @@
 'use strict';
 
-var dateFormat = require('dateformat');
-
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     title: {
@@ -12,15 +10,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    author: DataTypes.STRING
+    author: DataTypes.STRING,
+    genre: DataTypes.STRING,
+    year: DataTypes.INTEGER
   }, {});
-  Book.associate = function(models) {
-    // associations can be defined here
-  };
-
-  Book.prototype.publishedAt = function() {
-    return dateFormat(this.createdAt, "dddd, mmmm dS, yyyy, h:MM TT");
-  };
 
   return Book;
 };

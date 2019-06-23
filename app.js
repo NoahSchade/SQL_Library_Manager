@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var connect = require('connect')
-var methodOverride = require('method-override')
+var connect = require('connect');
+var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
 var books = require('./routes/books');
@@ -18,6 +18,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
