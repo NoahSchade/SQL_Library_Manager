@@ -1,14 +1,10 @@
 include ../layout
 include ../footer
 
-doctype html
-html
-  head
-    title Books
-  body(style='visibility: hidden;', onload='js_Load()')
+    block content
     h1 Books
     p
-      a.button(href='new_book.html') Create New Book
+      a.button(href='books/new') Create New Book
     table
       thead
         tr

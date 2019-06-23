@@ -3,4 +3,6 @@ html
   head
     title Books
   body(style='visibility: hidden;', onload='js_Load()')
+    script.
+      window.addEventListener('popstate', function(e){console.log('url changed')});
     block content
