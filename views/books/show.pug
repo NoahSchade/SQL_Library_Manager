@@ -1,11 +1,13 @@
-extends ../layout
+include ../layout
+include ../footer
 
 block content
-  h1= book.title
-  include by_line
-  p= book.body
-  a(href="../") &larr; Back
-  | | 
-  a(href="/books/" + book.id + "/edit") Edit Book
-  | | 
-  a(href="/books/" + book.id + "/delete") Delete Book
+h1= book.title
+//- include by_line
+p= book.body
+a(href="../") &larr; Back
+| |
+a(href="/books/" + book.id + "/edit") Edit Book
+| | 
+a(href="/books/" + book.id + "/delete") Delete Book
+block footer

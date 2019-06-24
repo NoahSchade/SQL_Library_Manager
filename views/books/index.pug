@@ -17,7 +17,7 @@ include ../footer
         each book in books
           tr
             td.capitalize
-              a(href='book_detail.html') #{book.title}
+              a(href="/books/" + book.id) #{book.title}
             td.capitalize #{book.author}
             td.capitalize #{book.genre}
             td.capitalize #{book.year}
