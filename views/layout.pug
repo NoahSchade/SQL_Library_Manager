@@ -1,8 +1,10 @@
 doctype html
 html
   head
+    script.
+      if(performance.navigation.type == 2){
+        location.reload(true);
+      }
     title Books
   body(style='visibility: hidden;', onload='js_Load()')
-    script.
-      window.addEventListener('popstate', function(e){console.log('url changed')});
     block content
