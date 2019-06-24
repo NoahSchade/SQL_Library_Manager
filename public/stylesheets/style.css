@@ -92,6 +92,10 @@ input[type=text] {
   width: 300px;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .error {
   color: rgb(236, 15, 15);
 }

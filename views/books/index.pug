@@ -16,11 +16,11 @@ include ../footer
       tbody
         each book in books
           tr
-            td
+            td.capitalize
               a(href='book_detail.html') #{book.title}
-            td #{book.author}
-            td #{book.genre}
-            td #{book.year} 
+            td.capitalize #{book.author}
+            td.capitalize #{book.genre}
+            td.capitalize #{book.year}
 
     block footer
             

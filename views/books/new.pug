@@ -1,44 +1,12 @@
-//- include ../layout
-//- include ../footer
-
-//- block content
-//-   h1= title
-  
-//-   include errors
-  
-//-   form(action="/books", method="post")
-//-     include form
-
-//-   block footer
-
-
 include ../layout
 include ../footer
 
 block content
-<h1>New Book</h1>
-<form>
-    <p>
-        <label for="title">Title</label>
-        <input name="title" type="text" id="title">
-    </p>
-    <p>
-        <label for="author">Author</label>
-        <input name="author" type="text" id="author">
-    </p>
-    <p>
-        <label for="genre">Genre</label>
-        <input name="genre" type="text" id="genre">
-    </p>
-    <p>
-        <label for="year">Year</label>
-        <input name="year" type="text" id="year">
-    </p>
-    <p>
-        <input type="submit" value="Create New Book">
-    </p>
-    <p>
-        <a class="button" href="all_books.html">Cancel</a>
-    </p>
-</form>
-block footer
+  h1= title
+  
+  include errors
+  
+  form(action="/books", method="post")
+    include form
+
+  block footer
