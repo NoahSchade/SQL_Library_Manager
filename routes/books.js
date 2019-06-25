@@ -67,7 +67,7 @@ router.get('/:id/delete', function (req, res, next) {
 router.get('/:id', function(req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
     if(book) {
-    res.render('books/show', { book: book, title: book.title });
+    res.render('books/edit', { book: book, title: 'Update Book' });
     } else {
       res.send(404);
     }
