@@ -50,7 +50,7 @@ router.get('/:id/edit', function (req, res, next) {
 
 
 /* Delete book form. */
-router.get('/:id/delete', function (req, res, next) {
+router.get('books/:id/delete', function (req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
     if(book){
       res.render('books/delete', { book: book, title: 'Delete Book' });
@@ -85,7 +85,7 @@ router.put('/:id', function (req, res, next) {
       res.send(404);
     }
   }).then((book) => {
-    res.redirect('/books/' + book.id);
+    res.redirect('/books');
   }).catch(function(err){
     if(err.name === "SequelizeValidationError"){
       var book = Book.build(req.body);
