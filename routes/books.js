@@ -5,7 +5,7 @@ var Book = require("../models").Book;
 /* GET books listing. */
 router.get('/', function(req, res, next) {
   Book.findAll({order: [["createdAt", "DESC"]]}).then(function(books){
-    res.render("books/index", {books: books, title: "My Awesome Blog" });
+    res.render("books/index", {books: books, title: "Books" });
   }).catch(function(err){
     res.send(500);
   });
@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
 /* POST create book. */
 router.post('/', function(req, res, next) {
   Book.create(req.body).then(function(book) {
-    res.redirect("/books/" + book.id);
+    res.redirect("/books");
   }).catch(function(err){
     if(err.name === "SequelizeValidationError"){
-      res.render('books/new', {
+      res.render('books/new-book', {
         book: Book.build(req.body), 
         title: 'New Book',
         errors: err.errors
@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
 
 /* Create a new book form. */
 router.get('/new', function(req, res, next) {
-  res.render('books/new', {book: Book.build(), title: 'New Book'});
+  res.render('books/new-book', {book: Book.build(), title: 'New Book'});
 });
 
 /* Edit book form. */
@@ -50,7 +50,7 @@ router.get('/:id/edit', function (req, res, next) {
 
 
 /* Delete book form. */
-router.get('/:id/delete', function (req, res, next) {
+router.get('books/:id/delete', function (req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
     if(book){
       res.render('books/delete', { book: book, title: 'Delete Book' });
@@ -67,7 +67,7 @@ router.get('/:id/delete', function (req, res, next) {
 router.get('/:id', function(req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
     if(book) {
-    res.render('books/show', { book: book, title: book.title });
+    res.render('books/update-book', { book: book, title: 'Update Book' });
     } else {
       res.send(404);
     }
@@ -85,13 +85,13 @@ router.put('/:id', function (req, res, next) {
       res.send(404);
     }
   }).then((book) => {
-    res.redirect('/books/' + book.id);
+    res.redirect('/books');
   }).catch(function(err){
     if(err.name === "SequelizeValidationError"){
       var book = Book.build(req.body);
       book.id = req.params.id;
 
-      res.render('books/edit', {
+      res.render('books/update-book', {
         book: book, 
         title: 'Edit Book',
         errors: err.errors
