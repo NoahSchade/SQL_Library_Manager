@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.redirect("/books")
 });
 
+router.get(/^(?!.*\/books)/, function(req, res, next) {
+  res.render('books/page-not-found');
+});
+
 router.get(/^((\/books\/books\/new).*)$/, function(req, res, next) {
   res.redirect("/books/new")
 });

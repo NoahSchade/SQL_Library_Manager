@@ -70,7 +70,6 @@ router.get('/:id', function(req, res, next) {
     res.render('books/update-book', { book: book, title: 'Update Book' });
     } else {
       res.render('error');
-      res.send(500);
     }
   }).catch(function(err){
     res.send(500);
