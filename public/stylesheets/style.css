@@ -10,9 +10,9 @@ a {
   transition: 0.4s;
 }
 
-  a:hover {
-    color: black;
-  }
+a:hover {
+  color: black;
+}
 
 a.button, input[type=submit] {
   color: white;
@@ -98,4 +98,13 @@ input[type=text] {
 
 .error {
   color: rgb(236, 15, 15);
+}
+
+.search {
+  width: 75% !important;
+  border-collapse: separate !important;
+  border-spacing: 2px !important;
+  padding: 5px 20px 5px 10px !important;
+  display: table-cell !important;
+  vertical-align: inherit !important;
 }
