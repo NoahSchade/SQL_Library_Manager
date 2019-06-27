@@ -16,21 +16,22 @@ include ../footer
       tbody
         tr
           td.capitalize
-            input(class='search' type='text' name='title' placeholder='Search Title')
+            input(id='search-title' class='search' type='text' name='title' placeholder='Search Title' onkeyup="searchTitle(event)")
           td.capitalize
-            input(class='search' type='text' name='author' placeholder='Search Author')
+            input(id='search-author' class='search' type='text' name='author' placeholder='Search Author' onkeyup="searchAuthor(event)")
           td.capitalize
-            input(class='search' type='text' name='genre' placeholder='Search Genre')
+            input(id='search-genre' class='search' type='text' name='genre' placeholder='Search Genre' onkeyup="searchGenre(event)")
           td.capitalize
-            input(class='search' type='text' name='year' placeholder='Search Year')
+            input(id='search-year' class='search' type='text' name='year' placeholder='Search Year' onkeyup="searchYear(event)")
         each book in books
           tr
-            td.capitalize
+            td.capitalize#select-title
               a(href="/books/" + book.id) #{book.title}
-            td.capitalize #{book.author}
-            td.capitalize #{book.genre}
-            td.capitalize #{book.year}
+            td.capitalize#select-author #{book.author}
+            td.capitalize#select-genre #{book.genre}
+            td.capitalize#select-year #{book.year}
 
+    script(src="./scripts/script.js")
     block footer
             
             
