@@ -63,8 +63,12 @@ tr {
   min-height: 50px;
 }
 
-tr:nth-child(2n) {
+tr:nth-child(2n+1) {
   background: #E7E7E7;
+}
+
+.white {
+  background-color: white !important;
 }
 
 td {
