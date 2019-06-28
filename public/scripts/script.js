@@ -1,15 +1,18 @@
-let searchTitleVar;
-let selectTitleVar;
+let searchForTitle;
+let titleList;
+
 
 function searchTitle(event) { 
-  searchTitleVar = event.target.value.toLowerCase();
+  searchForTitle = event.target.value.toLowerCase();
+  console.log(document.querySelectorAll('.select-title').length);
+  for(let i = 0; i < document.querySelectorAll('.select-title').length; i++) {
 
-  for(let i = 0; i < document.querySelectorAll('#select-title').length; i++) {
+    titleList = document.querySelectorAll('.select-title')[i].textContent.toLowerCase();
 
-    selectTitleVar = document.querySelectorAll('#select-title')[i].textContent.toLowerCase();
-
-    if(searchTitleVar === selectTitleVar){
-      console.log(searchTitleVar);
+    if(searchForTitle === titleList){
+      document.querySelectorAll('.selectRow')[i].style.display = '';
+    } else {
+      document.querySelectorAll('.selectRow')[i].style.display = 'none';
     }
   }
 }

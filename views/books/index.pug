@@ -23,15 +23,15 @@ include ../footer
             input(id='search-genre' class='search' type='text' name='genre' placeholder='Search Genre' onkeyup="searchGenre(event)")
           td.capitalize
             input(id='search-year' class='search' type='text' name='year' placeholder='Search Year' onkeyup="searchYear(event)")
-        each book in books
-          tr
-            td.capitalize#select-title
-              a(href="/books/" + book.id) #{book.title}
-            td.capitalize#select-author #{book.author}
-            td.capitalize#select-genre #{book.genre}
-            td.capitalize#select-year #{book.year}
+      each book in books
+        tr.selectRow
+          td.capitalize.select-title
+            a(href="/books/" + book.id) #{book.title}
+          td.capitalize.select-author #{book.author}
+          td.capitalize.select-genre #{book.genre}
+          td.capitalize.select-year #{book.year}
 
-    script(src="./scripts/script.js")
+    script(src="../scripts/script.js")
     block footer
             
             
