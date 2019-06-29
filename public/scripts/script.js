@@ -33,3 +33,41 @@ function searchTitle(event) {
   counterArrayTitle = [];
 
 }
+
+/////////////////////////////////////////////////////////////////////////////////
+
+let searchForAuthor;
+let authorList;
+let matchAuthor;
+let regexAuthor;
+let counterArrayAuthor = [];
+
+function searchAuthor(event) {
+  searchForAuthor = event.target.value.toLowerCase();
+
+  for(let i = 0; i < document.querySelectorAll('.select-author').length; i++) {
+
+    authorList = document.querySelectorAll('.select-author')[i].textContent.toLowerCase();
+
+    regexAuthor = new RegExp("^" + searchForAuthor + ".*");
+    matchAuthor = authorList.match(regexAuthor);
+
+    if(matchAuthor){
+      selectRow = document.querySelectorAll('.selectRow');
+      selectRow[i].style.display = '';
+      counterArrayAuthor.push(selectRow[i]);
+    } else {
+      document.querySelectorAll('.selectRow')[i].style.display = 'none';
+    }
+  } 
+  for(let x = 0; x < counterArrayAuthor.length; x += 2){
+    counterArrayAuthor[x].style.backgroundColor = '#E7E7E7';
+  }
+
+  for(let y = 1; y < counterArrayAuthor.length; y += 2){
+    counterArrayAuthor[y].style.backgroundColor = 'white';
+  }
+
+  counterArrayAuthor = [];
+
+}
