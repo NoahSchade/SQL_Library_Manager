@@ -1,4 +1,9 @@
-let counterArrayGlobal = [];
+let counterArrayGlobal = [{ 
+    // title: '',
+    // author: ''
+  }]
+
+let counter = 0;
 
 let searchForTitle;
 let titleList;
@@ -6,7 +11,17 @@ let matchTitle;
 let regexTitle;
 let counterArrayTitle = [];
 
+let searchForAuthor;
+let authorList;
+let matchAuthor;
+let regexAuthor;
+let counterArrayAuthor = [];
+
 function searchMashup(event) {
+
+  console.log(counter);
+  // counterArrayGlobal[0].title = "test";
+  // console.log(counterArrayGlobal[0]);
 
   if(event.target.id === 'search-title') {
     searchForTitle = event.target.value.toLowerCase();
@@ -20,9 +35,7 @@ function searchMashup(event) {
 
       if(matchTitle){
         selectRow = document.querySelectorAll('.selectRow');
-        // selectRow[i].style.display = '';
-        counterArrayTitle.push(selectRow[i]);
-        counterArrayGlobal.push(selectRow[i]);
+        counterArrayGlobal[counter].title = selectRow[i];
       } else {
         document.querySelectorAll('.selectRow')[i].style.display = 'none';
       }
@@ -32,11 +45,7 @@ function searchMashup(event) {
 
 /////////////////////////////////////////////////////////////////////////////////
 
-  let searchForAuthor;
-  let authorList;
-  let matchAuthor;
-  let regexAuthor;
-  let counterArrayAuthor = [];
+
 
   if(event.target.id === 'search-author') {
     searchForAuthor = event.target.value.toLowerCase();
@@ -51,39 +60,18 @@ function searchMashup(event) {
       if(matchAuthor){
         selectRow = document.querySelectorAll('.selectRow');
         // selectRow[i].style.display = '';
-        counterArrayAuthor.push(selectRow[i]);
-        counterArrayGlobal.push(selectRow[i]);
+        // counterArrayAuthor.push(selectRow[i]);
+        counterArrayGlobal[counter].author = selectRow[i];
       } else {
         document.querySelectorAll('.selectRow')[i].style.display = 'none';
       }
     }
   }
 
-  for(let x = 0; x < counterArrayGlobal.length; x += 2){
-    counterArrayGlobal[x].style.backgroundColor = '#E7E7E7';
-  }
-
-  for(let y = 1; y < counterArrayGlobal.length; y += 2){
-    counterArrayGlobal[y].style.backgroundColor = 'white';
-  }
-
-  for(let x = 0; x < counterArrayGlobal.length; x++){
-    for(let j = 0; j < counterArrayGlobal.length; j++){
-      if(counterArrayGlobal[x] === counterArrayTitle[j]){
-        counterArrayGlobal[x].style.display = '';
-
-        for(let z = 0; z < counterArrayTitle.length; z += 2){
-          counterArrayTitle[z].style.backgroundColor = '#E7E7E7';
-        }
-      
-        for(let y = 1; y < counterArrayTitle.length; y += 2){
-          counterArrayTitle[y].style.backgroundColor = 'white';
-        }
-      } else {
-        
-      }
-    }
+  if (counterArrayGlobal[counter].title === counterArrayGlobal[counter].author) {
+    console.log("testing");
   }
   
-  counterArrayGlobal = [];
+  
+  counter++;
 }
