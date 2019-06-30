@@ -30,16 +30,13 @@ function searchMashup() {
     } else {
       selectRow[i].style.display = 'none';
     }
-/////////////////////////////////////////////////////////////////////////////////
 
     authorList = document.querySelectorAll('.select-author')[i].textContent.toLowerCase();
 
     regexAuthor = new RegExp("^" + searchForAuthor + ".*");
     matchAuthor = authorList.match(regexAuthor);
 
-    if(matchAuthor){
-
-    } else {
+    if(!matchAuthor){
       selectRow[i].style.display = 'none';
     }
   } 
