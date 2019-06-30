@@ -12,11 +12,18 @@ let matchAuthor;
 let regexAuthor;
 let authorSearch = document.querySelector('#search-author');
 
+let searchForGenre;
+let genreList;
+let matchGenre;
+let regexGenre;
+let genreSearch = document.querySelector('#search-genre');
+
 
 function searchMashup() {
 
   searchForTitle = titleSearch.value.toLowerCase();
   searchForAuthor = authorSearch.value.toLowerCase();
+  searchForGenre = genreSearch.value.toLowerCase();
 
   for(let i = 0; i < document.querySelectorAll('.select-title').length; i++) {
 
@@ -37,6 +44,15 @@ function searchMashup() {
     matchAuthor = authorList.match(regexAuthor);
 
     if(!matchAuthor){
+      selectRow[i].style.display = 'none';
+    }
+
+    genreList = document.querySelectorAll('.select-genre')[i].textContent.toLowerCase();
+
+    regexGenre = new RegExp("^" + searchForGenre + ".*");
+    matchGenre = genreList.match(regexGenre);
+
+    if(!matchGenre){
       selectRow[i].style.display = 'none';
     }
   } 
