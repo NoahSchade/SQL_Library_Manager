@@ -71,5 +71,22 @@ function searchMashup() {
     if(!matchYear){
       selectRow[i].style.display = 'none';
     }
-  } 
+  }
+  let afterMathSelectRow = document.querySelectorAll('.selectRow');
+  let evenArray = [];
+  let resultRow;
+
+  for(let w = 0; w < afterMathSelectRow.length; w++){
+    if(afterMathSelectRow[w].style.display !== 'none'){
+      resultRow = afterMathSelectRow[w];
+      evenArray.push(resultRow);
+    }
+  }
+  for(let r = 0; r < evenArray.length; r += 2){
+    evenArray[r].style.backgroundColor = "red";
+  }
+  for(let p = 1; p < evenArray.length; p += 2){
+    evenArray[p].style.backgroundColor = "white";
+  }
+  evenArray = [];
 }
