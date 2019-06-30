@@ -18,12 +18,19 @@ let matchGenre;
 let regexGenre;
 let genreSearch = document.querySelector('#search-genre');
 
+let searchForYear;
+let yearList;
+let matchYear;
+let regexYear;
+let yearSearch = document.querySelector('#search-year');
+
 
 function searchMashup() {
 
   searchForTitle = titleSearch.value.toLowerCase();
   searchForAuthor = authorSearch.value.toLowerCase();
   searchForGenre = genreSearch.value.toLowerCase();
+  searchForYear = yearSearch.value.toLowerCase();
 
   for(let i = 0; i < document.querySelectorAll('.select-title').length; i++) {
 
@@ -53,6 +60,15 @@ function searchMashup() {
     matchGenre = genreList.match(regexGenre);
 
     if(!matchGenre){
+      selectRow[i].style.display = 'none';
+    }
+
+    yearList = document.querySelectorAll('.select-year')[i].textContent.toLowerCase();
+
+    regexYear = new RegExp("^" + searchForYear + ".*");
+    matchYear = yearList.match(regexYear);
+
+    if(!matchYear){
       selectRow[i].style.display = 'none';
     }
   } 
