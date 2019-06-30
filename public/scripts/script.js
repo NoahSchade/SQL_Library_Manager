@@ -83,7 +83,7 @@ function searchMashup() {
     }
   }
   for(let r = 0; r < evenArray.length; r += 2){
-    evenArray[r].style.backgroundColor = "red";
+    evenArray[r].style.backgroundColor = "#E7E7E7";
   }
   for(let p = 1; p < evenArray.length; p += 2){
     evenArray[p].style.backgroundColor = "white";
