@@ -3,27 +3,13 @@ var router = express.Router();
 var Book = require("../models").Book;
 
 /* GET books listing. */
-router.get('/search/:id', function(req, res, next) {
-  // Book.findByPk(req.params.id).then((book) => {
-    Book.findAll({order: [["createdAt", "DESC"]], where: {id: req.params.id}}).then(function(books){
-      res.render("books/index", {books: books, title: "Books"});
-    }).catch(function(err){
-      res.send(500);
-    // });
+router.get('/', function(req, res, next) {
+  Book.findAll({order: [["createdAt", "DESC"]]}).then(function(books){
+    res.render("books/index", {books: books, title: "Books" });
+  }).catch(function(err){
+    res.send(500);
   });
 });
-
-// router.get('/selected/:id', function(req, res, next) {
-//   Book.findByPk(req.params.id).then((book) => {
-//     if(book) {
-//     res.render('books/update-book', { book: book, title: 'Update Book' });
-//     } else {
-//       res.render('error');
-//     }
-//   }).catch(function(err){
-//     res.send(500);
-//   });
-// });
 
 /* POST create book. */
 router.post('/', function(req, res, next) {
@@ -78,7 +64,7 @@ router.get('books/:id/delete', function (req, res, next) {
 
 
 /* GET individual book. */
-router.get('/selected/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
     if(book) {
     res.render('books/update-book', { book: book, title: 'Update Book' });
