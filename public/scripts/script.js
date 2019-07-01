@@ -90,3 +90,32 @@ function searchMashup() {
   }
   evenArray = [];
 }
+
+let table = document.querySelector("table");
+let appendButtons = document.querySelector(".appendButtons");
+let button_1 = document.createElement("BUTTON");
+let button_2 = document.createElement("BUTTON");
+let button_3 = document.createElement("BUTTON");
+appendButtons.appendChild(button_1);
+appendButtons.appendChild(button_2);
+appendButtons.appendChild(button_3);
+appendButtons.style.display = "block";
+appendButtons.style.margin = "auto";
+button_1.style.height = "40px";
+button_1.style.width = "40px";
+button_2.style.height = "40px";
+button_2.style.width = "40px";
+button_3.style.height = "40px";
+button_3.style.width = "40px";
+button_1.style.display = "block";
+button_2.style.display = "block";
+button_3.style.display = "block";
+button_1.style.position = "relative";
+button_2.style.position = "relative";
+button_3.style.position = "relative";
+button_1.style.float = "left";
+button_2.style.float = "left";
+button_3.style.float = "left";
+button_1.style.margin = "auto";
+button_2.style.margin = "auto";
+button_3.style.margin = "auto";
