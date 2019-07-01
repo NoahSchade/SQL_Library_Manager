@@ -27,6 +27,8 @@ let yearSearch = document.querySelector('#search-year');
 
 function searchMashup() {
 
+  console.log(location.pathname);
+
   searchForTitle = titleSearch.value.toLowerCase();
   searchForAuthor = authorSearch.value.toLowerCase();
   searchForGenre = genreSearch.value.toLowerCase();
