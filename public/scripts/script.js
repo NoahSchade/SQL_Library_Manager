@@ -127,6 +127,7 @@ function pagination(){
     paginationButtons[i].style.marginRight = "4px";
     paginationButtons[i].style.top = "-15px";
     paginationButtons[i].innerHTML = i + 1;
+    paginationButtons[i].addEventListener("click", function(){ paginate(i) });
   }
 
   containerArray = [];
@@ -136,9 +137,11 @@ function pagination(){
     }
   }
 
-  let num = 0;
-  for(let i = num * 10; i < num * 10 + 10; i++){
-    console.log(i);
+  function paginate(num){
+    for(let i = num * 10; i < num * 10 + 10; i++){
+      // containerArray[i];
+      console.log(i);
+    }
   }
 
   if(paginationButtons.length !== 0){
