@@ -123,9 +123,16 @@ function pagination(){
     paginationButtons[i].style.width = "40px";
     paginationButtons[i].style.position = "relative";
     paginationButtons[i].style.float = "left";
+    paginationButtons[i].style.marginRight = "4px";
+    paginationButtons[i].style.top = "-15px";
+    paginationButtons[i].innerHTML = i + 1;
   }
 
-
+  if(paginationButtons.length !== 0){
+    document.querySelector('#pagesText').innerHTML = '<h2>Pages</h2>';
+  } else {
+    document.querySelector('#pagesText').innerHTML = '';
+  }
 
   console.log(selectRow.length);
 
