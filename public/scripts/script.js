@@ -1,4 +1,5 @@
 let selectRow = document.querySelectorAll('.selectRow');
+let containerArray = [];
 
 let searchForTitle;
 let titleList;
@@ -128,13 +129,23 @@ function pagination(){
     paginationButtons[i].innerHTML = i + 1;
   }
 
+  containerArray = [];
+  for(let i = 0; i < selectRow.length; i++){
+    if(selectRow[i].style.display !== 'none'){
+      containerArray.push(selectRow[i]);
+    }
+  }
+
+  let num = 0;
+  for(let i = num * 10; i < num * 10 + 10; i++){
+    console.log(i);
+  }
+
   if(paginationButtons.length !== 0){
     document.querySelector('#pagesText').innerHTML = '<h2>Pages</h2>';
   } else {
     document.querySelector('#pagesText').innerHTML = '';
   }
-
-  console.log(selectRow.length);
 
   paginationButtons = [];
   displayedRow = [];
