@@ -94,27 +94,28 @@ function searchMashup() {
       selectRow[i].style.display = 'none';
     }
   }
-  let afterMathSelectRow = document.querySelectorAll('.selectRow');
-  let evenArray = [];
-  let resultRow;
 
-  for(let w = 0; w < afterMathSelectRow.length; w++){
-    if(afterMathSelectRow[w].style.display !== 'none'){
-      resultRow = afterMathSelectRow[w];
-      evenArray.push(resultRow);
-    }
-  }
-  for(let r = 0; r < evenArray.length; r += 2){
-    evenArray[r].style.backgroundColor = "#E7E7E7";
-  }
-  for(let p = 1; p < evenArray.length; p += 2){
-    evenArray[p].style.backgroundColor = "white";
-  }
-  evenArray = [];
 
   pagination();
   paginationResults();
 
+  let afterMathSelectRow = selectRow;
+  let evenArray = [];
+  let resultRow;
+
+  for(let i = 0; i < afterMathSelectRow.length; i++){
+    if(afterMathSelectRow[i].style.display !== 'none'){
+      resultRow = afterMathSelectRow[i];
+      evenArray.push(resultRow);
+    }
+  }
+  for(let i = 0; i < evenArray.length; i += 2){
+    evenArray[i].style.backgroundColor = "#E7E7E7";
+  }
+  for(let i = 1; i < evenArray.length; i += 2){
+    evenArray[i].style.backgroundColor = "white";
+  }
+  evenArray = [];
 }
 
 function pagination(){
@@ -173,7 +174,9 @@ function paginationResults(){
     }
 
     for(let i = num * 10; i < num * 10 + 10; i++){
-      rowArray[i].style.display = '';
+      if(rowArray[i] !== undefined){
+        rowArray[i].style.display = '';
+      }
     }
   }
   rowArray = [];
