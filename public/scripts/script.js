@@ -148,6 +148,9 @@ function pagination(){
   }
 
   function paginate(num){
+    for(let i = 0; i < selectRow.length; i++){
+      selectRow[i].style.display = 'none';
+    }
     for(let i = num * 10; i < num * 10 + 10; i++){
       if(containerArray[i] !== undefined) {
         containerArray[i].style.display = '';
