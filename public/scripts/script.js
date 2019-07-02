@@ -1,4 +1,6 @@
 let selectRow = document.querySelectorAll('.selectRow');
+let rowArray = [];
+let index;
 
 let searchForTitle;
 let titleList;
@@ -47,9 +49,24 @@ function searchMashup() {
     matchTitle = titleList.match(regexTitle);
 
     if(matchTitle){
-      selectRow[i].style.display = '';
+      rowArray.push(selectRow[i]);
+      // selectRow[i].style.display = '';
+     
     } else {
-      selectRow[i].style.display = 'none';
+
+      var index = rowArray.indexOf(selectRow[i]);
+      if (index > -1) {
+        rowArray.splice(index, 1);
+      }
+      console.log(rowArray);
+
+      // selectRow[i].style.display = 'none';
+    }
+
+    if(!rowArray[i]){
+      if(rowArray[i] !== undefined){
+        rowArray[i].style.display = 'none';
+      }
     }
 
     authorList = document.querySelectorAll('.select-author')[i].textContent.toLowerCase();
@@ -114,7 +131,7 @@ function pagination(){
     }
   }
 
-  for(let i = 0; i < (Math.ceil(displayedRow.length / 10) * 10); i += 10){
+  for(let i = 0; i < (Math.ceil(rowArray.length / 10) * 10); i += 10){
     paginationButtons.push(document.createElement("BUTTON"));
   }
 
@@ -158,9 +175,10 @@ function paginationResults(){
     }
 
     for(let i = num * 10; i < num * 10 + 10; i++){
-      selectRow[i].style.display = ''; 
+      rowArray[i].style.display = '';
     }
   }
+  rowArray = [];
 }
 
 paginationResults();
