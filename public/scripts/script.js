@@ -30,6 +30,8 @@ let displayedRow = [];
 
 pagination();
 
+
+
 function searchMashup() {
 
   searchForTitle = titleSearch.value.toLowerCase();
@@ -96,6 +98,7 @@ function searchMashup() {
   evenArray = [];
 
   pagination();
+  paginationResults();
 
 }
 
@@ -134,9 +137,30 @@ function pagination(){
     document.querySelector('#pagesText').innerHTML = '';
   }
 
-  console.log(selectRow.length);
-
   paginationButtons = [];
   displayedRow = [];
 }
 
+function paginationResults(){
+
+  showResults(0);
+
+  let pageButtons = document.querySelectorAll('.pageButtons');
+
+  for(let i = 0; i < pageButtons.length; i++){
+    pageButtons[i].addEventListener("click", function(){showResults(i)});
+  }
+
+  function showResults(num){
+
+    for(let i = 0; i < selectRow.length; i++){
+      selectRow[i].style.display = 'none'; 
+    }
+
+    for(let i = num * 10; i < num * 10 + 10; i++){
+      selectRow[i].style.display = ''; 
+    }
+  }
+}
+
+paginationResults();
