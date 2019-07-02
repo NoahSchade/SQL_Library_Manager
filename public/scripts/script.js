@@ -30,9 +30,7 @@ let spaceForButtons = document.querySelector(".spaceForButtons");
 let paginationButtons = [];
 let displayedRow = [];
 
-pagination();
-
-
+searchMashup()
 
 function searchMashup() {
 
@@ -180,5 +178,3 @@ function paginationResults(){
   }
   rowArray = [];
 }
-
-paginationResults();
