@@ -28,29 +28,7 @@ let spaceForButtons = document.querySelector(".spaceForButtons");
 let paginationButtons = [];
 let displayedRow = [];
 
-
-for(let i = 0; i < selectRow.length; i++){
-  if(selectRow[i].style.display !== 'none'){
-    displayedRow.push(selectRow[i]);
-  }
-}
-
-for(let i = 0; i < (Math.ceil(displayedRow.length / 10) * 10); i += 10){
-  paginationButtons.push(document.createElement("BUTTON"));
-}
-
-for(let i = 0; i < paginationButtons.length; i++){
-  spaceForButtons.appendChild(paginationButtons[i]);
-  paginationButtons[i].className = "pageButtons";
-  paginationButtons[i].style.display = "block";
-  paginationButtons[i].style.height = "40px";
-  paginationButtons[i].style.width = "40px";
-  paginationButtons[i].style.position = "relative";
-  paginationButtons[i].style.float = "left";
-}
-
-paginationButtons = [];
-displayedRow = [];
+pagination();
 
 function searchMashup() {
 
@@ -117,10 +95,11 @@ function searchMashup() {
   }
   evenArray = [];
 
-  // for(let i = 0; i < document.querySelectorAll('.pageButtons').length; i++){
-  //   spaceForButtons.removeChild(document.querySelector('.pageButtons'));
-  // }
+  pagination();
 
+}
+
+function pagination(){
   var myNode = document.querySelector(".spaceForButtons");
   while (myNode.firstChild) {
     myNode.removeChild(myNode.firstChild);
@@ -135,7 +114,7 @@ function searchMashup() {
   for(let i = 0; i < (Math.ceil(displayedRow.length / 10) * 10); i += 10){
     paginationButtons.push(document.createElement("BUTTON"));
   }
-  
+
   for(let i = 0; i < paginationButtons.length; i++){
     spaceForButtons.appendChild(paginationButtons[i]);
     paginationButtons[i].className = "pageButtons";
@@ -146,13 +125,11 @@ function searchMashup() {
     paginationButtons[i].style.float = "left";
   }
 
-  
+
 
   console.log(selectRow.length);
 
   paginationButtons = [];
   displayedRow = [];
 }
-
-
 
