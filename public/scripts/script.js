@@ -137,10 +137,21 @@ function pagination(){
     }
   }
 
+  for(let i = 0; i < selectRow.length; i++){
+    selectRow[i].style.display = 'none';
+  }
+
+  for(let i = 0; i < 10; i++){
+    if(containerArray[i] !== undefined) {
+      containerArray[i].style.display = '';
+    }
+  }
+
   function paginate(num){
     for(let i = num * 10; i < num * 10 + 10; i++){
-      // containerArray[i];
-      console.log(i);
+      if(containerArray[i] !== undefined) {
+        containerArray[i].style.display = '';
+      }
     }
   }
 
