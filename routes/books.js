@@ -35,34 +35,6 @@ router.get('/new', function(req, res, next) {
   res.render('books/new-book', {book: Book.build(), title: 'New Book'});
 });
 
-/* Edit book form. */
-router.get('/:id/edit', function (req, res, next) {
-  Book.findByPk(req.params.id).then((book) => {
-    if(book) {
-      res.render('books/edit', { book: book, title: 'Edit Book' });
-    } else {
-      res.send(404);
-    }
-  }).catch(function(err){
-    res.send(500);
-  });
-});
-
-
-/* Delete book form. */
-router.get('books/:id/delete', function (req, res, next) {
-  Book.findByPk(req.params.id).then((book) => {
-    if(book){
-      res.render('books/delete', { book: book, title: 'Delete Book' });
-    } else {
-      res.send(404);
-    }
-  }).catch(function(err){
-    res.send(500);
-  });
-});
-
-
 /* GET individual book. */
 router.get('/:id', function(req, res, next) {
   Book.findByPk(req.params.id).then((book) => {
