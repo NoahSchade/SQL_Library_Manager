@@ -5,7 +5,7 @@ include ../footer
 //- Inserting content from 'layout.pug'
 block content
 
-  //- Inserting page title, table and error message if the title or author field is not entered.
+  //- Inserting page title, form and error message if the title or author field is not entered.
   h1= title
   include errors
   form(action="/books", method="post")
