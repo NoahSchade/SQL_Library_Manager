@@ -2,6 +2,7 @@
 
 var dateFormat = require('dateformat');
 
+// Set data types for all table headers and validation for title and author headers.
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     title: {
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     year: DataTypes.INTEGER
   }, {});
 
+  // Set current date when a book listing is first created.
   Book.prototype.publishedAt = function() {
     return dateFormat(this.createdAt, "dddd, mmmm dS, yyyy, h:MM TT");
   };

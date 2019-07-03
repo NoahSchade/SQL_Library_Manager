@@ -1,3 +1,4 @@
+// Setup variables
 let selectRow = document.querySelectorAll('.selectRow');
 let containerArray = [];
 
@@ -31,6 +32,10 @@ let displayedRow = [];
 
 pagination();
 
+// Everytime the input value changes, 'searchMashup' is called.
+// 'searchMashup' displays the search results and removes the previous search results.
+// It also takes care of the grey highligthing of the rows.
+// It calls the 'pagination' function.
 function searchMashup() {
 
   searchForTitle = titleSearch.value.toLowerCase();
@@ -100,6 +105,10 @@ function searchMashup() {
 
 }
 
+// Removes pagination buttons from the previous search.
+// Calulates how many pagination buttons to display based on the number of results from the search.
+// Displays rows based on the pagination button clicked.
+// Shows the text 'Pages' if there are any results.
 function pagination(){
   var myNode = document.querySelector(".spaceForButtons");
   while (myNode.firstChild) {
