@@ -1,11 +1,17 @@
+//- Including dependencies
 include ../layout
 include ../footer
 
+    //- Inserting content from 'layout.pug'
     block content
+
+    //- Adding a title to the page.
     h1 Books
     p
+      //- Adding a button to the page which brings you to the new book page if the button is selected.  
       a.button(href='books/new') Create New Book
 
+    //- Creating a table which contains all of the book listings.
     table
       thead
         tr.white
@@ -31,10 +37,16 @@ include ../footer
           td.capitalize.select-genre #{book.genre}
           td.capitalize.select-year #{book.year}
 
+    //- Adding a header to the bottom of the page whith the text 'Pages'.
     div#pagesText
+
+    //- Appending all the pagination buttons.
     div.spaceForButtons
 
+    //- Linking the 'script.js' file to this page.
     script(src="../scripts/script.js")
+
+    //- Inserting content from 'footer.pug'.
     block footer
             
             
