@@ -47,7 +47,7 @@ function searchMashup() {
 
     titleList = document.querySelectorAll('.select-title')[i].textContent.toLowerCase();
 
-    regexTitle = new RegExp("^" + searchForTitle + ".*");
+    regexTitle = new RegExp(searchForTitle);
     matchTitle = titleList.match(regexTitle);
 
     if(matchTitle){
@@ -58,7 +58,7 @@ function searchMashup() {
 
     authorList = document.querySelectorAll('.select-author')[i].textContent.toLowerCase();
 
-    regexAuthor = new RegExp("^" + searchForAuthor + ".*");
+    regexAuthor = new RegExp(searchForAuthor);
     matchAuthor = authorList.match(regexAuthor);
 
     if(!matchAuthor){
@@ -67,7 +67,7 @@ function searchMashup() {
 
     genreList = document.querySelectorAll('.select-genre')[i].textContent.toLowerCase();
 
-    regexGenre = new RegExp("^" + searchForGenre + ".*");
+    regexGenre = new RegExp(searchForGenre);
     matchGenre = genreList.match(regexGenre);
 
     if(!matchGenre){
@@ -76,7 +76,7 @@ function searchMashup() {
 
     yearList = document.querySelectorAll('.select-year')[i].textContent.toLowerCase();
 
-    regexYear = new RegExp("^" + searchForYear + ".*");
+    regexYear = new RegExp(searchForYear);
     matchYear = yearList.match(regexYear);
 
     if(!matchYear){
